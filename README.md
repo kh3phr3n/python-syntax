@@ -9,6 +9,9 @@ Features
 
 Changes from the original `python.vim` are:
 
+* Highlight standard operators (~,!,^,&,|,*,/,%,+,- ...)
+* Highlight pseudo operators (-=,//=,*=,&=,%=,+=,!= ...)
+
 How to install
 --------------
 

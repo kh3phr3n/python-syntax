@@ -81,6 +81,10 @@ syn keyword pythonOperator	and in is not or
 syn keyword pythonException	except finally raise try
 syn keyword pythonInclude	from import
 
+" pythonExtra(*)Operator
+syn match pythonExtraOperator       "\%([~!^&|*/%+-]\|\%(class\s*\)\@<!<<\|<=>\|<=\|\%(<\|\<class\s\+\u\w*\s*\)\@<!<[^<]\@=\|===\|==\|=\~\|>>\|>=\|=\@<!>\|\*\*\|\.\.\.\|\.\.\|::\|=\)"
+syn match pythonExtraPseudoOperator "\%(-=\|/=\|\*\*=\|\*=\|&&=\|&=\|&&\|||=\||=\|||\|%=\|+=\|!\~\|!=\)"
+
 " Decorators (new in Python 2.4)
 syn match   pythonDecorator	"@" display nextgroup=pythonFunction skipwhite
 " The zero-length non-grouping match before the function name is
@@ -275,6 +279,11 @@ if version >= 508 || !exists("did_python_syn_inits")
   HiLink pythonString		String
   HiLink pythonRawString	String
   HiLink pythonEscape		Special
+
+  " pythonExtra(*)Operator
+  HiLink pythonExtraOperator       Operator
+  HiLink pythonExtraPseudoOperator Operator
+
   if !exists("python_no_number_highlight")
     HiLink pythonNumber		Number
   endif
