@@ -9,6 +9,7 @@ Features
 
 Changes from the original `python.vim` are:
 
+* Highlight self, cls keywords
 * Highlight standard operators (~,!,^,&,|,*,/,%,+,- ...)
 * Highlight pseudo operators (-=,//=,*=,&=,%=,+=,!= ...)
 
@@ -24,6 +25,7 @@ Informations
 
 This plugin is strongly inspired by:
 
+* [python-mode](https://github.com/klen/python-mode)
 * [python-syntax](https://github.com/hdima/python-syntax)
 * [pretty-vim-python](https://github.com/pfdevilliers/Pretty-Vim-Python)
 

@@ -80,6 +80,7 @@ syn keyword pythonRepeat	for while
 syn keyword pythonOperator	and in is not or
 syn keyword pythonException	except finally raise try
 syn keyword pythonInclude	from import
+syn keyword pythonSelf		self cls
 
 " pythonExtra(*)Operator
 syn match pythonExtraOperator       "\%([~!^&|*/%+-]\|\%(class\s*\)\@<!<<\|<=>\|<=\|\%(<\|\<class\s\+\u\w*\s*\)\@<!<[^<]\@=\|===\|==\|=\~\|>>\|>=\|=\@<!>\|\*\*\|\.\.\.\|\.\.\|::\|=\)"
@@ -279,6 +280,9 @@ if version >= 508 || !exists("did_python_syn_inits")
   HiLink pythonString		String
   HiLink pythonRawString	String
   HiLink pythonEscape		Special
+
+  " pythonSelf keywords
+  HiLink pythonSelf Identifier
 
   " pythonExtra(*)Operator
   HiLink pythonExtraOperator       Operator
