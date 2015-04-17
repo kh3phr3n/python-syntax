@@ -85,9 +85,6 @@ syn keyword pythonOperator	and in is not or
 syn keyword pythonException	except finally raise try
 syn keyword pythonInclude	from import
 
-" Python convention
-syn keyword pythonSelf self cls
-
 " Classes, Functions
 syn keyword pythonStatement class nextgroup=pythonClass skipwhite
 syn keyword pythonStatement def nextgroup=pythonFunction skipwhite
@@ -115,7 +112,7 @@ syn match  pythonClassParameters "[^,]*" contained contains=pythonExtraOperator,
 " Function parameters
 syn match  pythonFunction "\%(\%(def\s\|class\s\|@\)\s*\)\@<=\h\%(\w\|\.\)*" contained nextgroup=pythonFunctionVars
 syn region pythonFunctionVars start="(" end=")" contained contains=pythonFunctionParameters transparent keepend
-syn match  pythonFunctionParameters "[^,]*" contained contains=pythonExtraOperator,pythonBuiltin,pythonConstant,pythonStatement,pythonNumber,pythonString,pythonBrackets skipwhite
+syn match  pythonFunctionParameters "[^,]*" contained contains=pythonSelf,pythonExtraOperator,pythonBuiltin,pythonConstant,pythonStatement,pythonNumber,pythonString,pythonBrackets skipwhite
 
 syn match   pythonComment	"#.*$" contains=pythonTodo,@Spell
 syn keyword pythonTodo		FIXME NOTE NOTES TODO XXX contained
@@ -330,6 +327,7 @@ if version >= 508 || !exists("did_python_syn_inits")
   endif
 
   if exists("python_self_cls_highlight")
+    syn keyword pythonSelf self cls
     HiLink pythonSelf Identifier
   endif
   if !exists("python_no_operator_highlight")
