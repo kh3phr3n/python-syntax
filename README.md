@@ -12,8 +12,7 @@ Changes from the original `python.vim` are:
 * [OFF] Highlight self, cls keywords
 * [ON]  Highlight def, class parameters
 * [ON]  Highlight standard operators (~,!,^,&,|,\*,/,%,+,- ...)
-* [ON]  Highlight pseudo operators (-=,//=,*=,&=,%=,+=,!= ...)
-
+* [ON]  Highlight pseudo operators (-=,//=,\*=,&=,%=,+=,!= ...)
 * 3 extras options:
 
     * `let python_self_cls_highlight = 1`
