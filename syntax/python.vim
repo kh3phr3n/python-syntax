@@ -338,8 +338,8 @@ if version >= 508 || !exists("did_python_syn_inits")
   endif
   if !exists("python_no_parameter_highlight")
     HiLink pythonBrackets           Normal
-    HiLink pythonClassParameters    pythonConstant
-    HiLink pythonFunctionParameters pythonConstant
+    HiLink pythonClassParameters    Constant
+    HiLink pythonFunctionParameters Constant
   endif
 
   delcommand HiLink
