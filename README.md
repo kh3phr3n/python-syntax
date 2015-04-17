@@ -9,10 +9,16 @@ Features
 
 Changes from the original `python.vim` are:
 
-* Highlight self, cls keywords
-* Highlight def, class parameters
-* Highlight standard operators (~,!,^,&,|,*,/,%,+,- ...)
-* Highlight pseudo operators (-=,//=,*=,&=,%=,+=,!= ...)
+* [OFF] Highlight self, cls keywords
+* [ON]  Highlight def, class parameters
+* [ON]  Highlight standard operators (~,!,^,&,|,*,/,%,+,- ...)
+* [ON]  Highlight pseudo operators (-=,//=,*=,&=,%=,+=,!= ...)
+
+* 3 extras options:
+
+    1. `let python_self_cls_highlight = 1`
+    2. `let python_no_operator_highlight = 1`
+    3. `let python_no_parameter_highlight = 1`
 
 How to install
 --------------

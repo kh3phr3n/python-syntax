@@ -20,8 +20,9 @@
 "		  * space error
 "
 "		- corrected synchronization
-"		- more highlighting is ON by default, except
-"		- space error highlighting is OFF by default
+"		- more highlighting is ON by default, except:
+"		- space error highlighting is OFF by default,
+"		- self, cls keywords highlighting is OFF by default.
 "
 " Optional highlighting can be controlled using these variables.
 "
@@ -31,6 +32,10 @@
 "   let python_no_exception_highlight = 1
 "   let python_no_number_highlight = 1
 "   let python_space_error_highlight = 1
+"
+"   let python_no_parameter_highlight = 1
+"   let python_no_operator_highlight = 1
+"   let python_self_cls_highlight = 1
 "
 " All the options above can be switched on together.
 "
@@ -153,6 +158,13 @@ if exists("python_highlight_all")
   if exists("python_no_number_highlight")
     unlet python_no_number_highlight
   endif
+  if exists("python_no_parameter_highlight")
+    unlet python_no_parameter_highlight
+  endif
+  if exists("python_no_operator_highlight")
+    unlet python_no_operator_highlight
+  endif
+  let python_self_cls_highlight = 1
   let python_space_error_highlight = 1
 endif
 
@@ -300,20 +312,6 @@ if version >= 508 || !exists("did_python_syn_inits")
   HiLink pythonClass    Type
   HiLink pythonFunction Function
 
-  " pythonSelf keywords
-  HiLink pythonSelf Identifier
-
-  " pythonExtra(*)Operator
-  HiLink pythonExtraOperator       Operator
-  HiLink pythonExtraPseudoOperator Operator
-
-  " pythonClass parameters
-  HiLink pythonClassParameters pythonConstant
-
-  " pythonFunction parameters
-  HiLink pythonBrackets Normal
-  HiLink pythonFunctionParameters pythonConstant
-
   if !exists("python_no_number_highlight")
     HiLink pythonNumber		Number
   endif
@@ -329,6 +327,19 @@ if version >= 508 || !exists("did_python_syn_inits")
   if !exists("python_no_doctest_highlight")
     HiLink pythonDoctest	Special
     HiLink pythonDoctestValue	Define
+  endif
+
+  if exists("python_self_cls_highlight")
+    HiLink pythonSelf Identifier
+  endif
+  if !exists("python_no_operator_highlight")
+    HiLink pythonExtraOperator       Operator
+    HiLink pythonExtraPseudoOperator Operator
+  endif
+  if !exists("python_no_parameter_highlight")
+    HiLink pythonBrackets           Normal
+    HiLink pythonClassParameters    pythonConstant
+    HiLink pythonFunctionParameters pythonConstant
   endif
 
   delcommand HiLink
