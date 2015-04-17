@@ -10,6 +10,7 @@ Features
 Changes from the original `python.vim` are:
 
 * Highlight self, cls keywords
+* Highlight def, class parameters
 * Highlight standard operators (~,!,^,&,|,*,/,%,+,- ...)
 * Highlight pseudo operators (-=,//=,*=,&=,%=,+=,!= ...)
 

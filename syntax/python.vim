@@ -74,13 +74,18 @@ set cpo&vim
 syn keyword pythonStatement	False, None, True
 syn keyword pythonStatement	as assert break continue del exec global
 syn keyword pythonStatement	lambda nonlocal pass print return with yield
-syn keyword pythonStatement	class def nextgroup=pythonFunction skipwhite
 syn keyword pythonConditional	elif else if
 syn keyword pythonRepeat	for while
 syn keyword pythonOperator	and in is not or
 syn keyword pythonException	except finally raise try
 syn keyword pythonInclude	from import
-syn keyword pythonSelf		self cls
+
+" Python convention
+syn keyword pythonSelf self cls
+
+" Classes, Functions
+syn keyword pythonStatement class nextgroup=pythonClass skipwhite
+syn keyword pythonStatement def nextgroup=pythonFunction skipwhite
 
 " pythonExtra(*)Operator
 syn match pythonExtraOperator       "\%([~!^&|*/%+-]\|\%(class\s*\)\@<!<<\|<=>\|<=\|\%(<\|\<class\s\+\u\w*\s*\)\@<!<[^<]\@=\|===\|==\|=\~\|>>\|>=\|=\@<!>\|\*\*\|\.\.\.\|\.\.\|::\|=\)"
@@ -93,8 +98,19 @@ syn match   pythonDecorator	"@" display nextgroup=pythonFunction skipwhite
 " interpreted as a function inside the contained environment of
 " doctests.
 " A dot must be allowed because of @MyClass.myfunc decorators.
-syn match   pythonFunction
-      \ "\%(\%(def\s\|class\s\|@\)\s*\)\@<=\h\%(\w\|\.\)*" contained
+
+" Bracket symbols
+syn match pythonBrackets "{[(|)]}" contained skipwhite
+
+" Class parameters
+syn match  pythonClass "\%(\%(def\s\|class\s\|@\)\s*\)\@<=\h\%(\w\|\.\)*" contained nextgroup=pythonClassVars
+syn region pythonClassVars start="(" end=")" contained contains=pythonClassParameters transparent keepend
+syn match  pythonClassParameters "[^,]*" contained contains=pythonExtraOperator,pythonBuiltin,pythonConstant,pythonStatement,pythonNumber,pythonString,pythonBrackets skipwhite
+
+" Function parameters
+syn match  pythonFunction "\%(\%(def\s\|class\s\|@\)\s*\)\@<=\h\%(\w\|\.\)*" contained nextgroup=pythonFunctionVars
+syn region pythonFunctionVars start="(" end=")" contained contains=pythonFunctionParameters transparent keepend
+syn match  pythonFunctionParameters "[^,]*" contained contains=pythonExtraOperator,pythonBuiltin,pythonConstant,pythonStatement,pythonNumber,pythonString,pythonBrackets skipwhite
 
 syn match   pythonComment	"#.*$" contains=pythonTodo,@Spell
 syn keyword pythonTodo		FIXME NOTE NOTES TODO XXX contained
@@ -274,12 +290,15 @@ if version >= 508 || !exists("did_python_syn_inits")
   HiLink pythonException	Exception
   HiLink pythonInclude		Include
   HiLink pythonDecorator	Define
-  HiLink pythonFunction		Function
   HiLink pythonComment		Comment
   HiLink pythonTodo		Todo
   HiLink pythonString		String
   HiLink pythonRawString	String
   HiLink pythonEscape		Special
+
+  " Classes, Functions
+  HiLink pythonClass    Type
+  HiLink pythonFunction Function
 
   " pythonSelf keywords
   HiLink pythonSelf Identifier
@@ -287,6 +306,13 @@ if version >= 508 || !exists("did_python_syn_inits")
   " pythonExtra(*)Operator
   HiLink pythonExtraOperator       Operator
   HiLink pythonExtraPseudoOperator Operator
+
+  " pythonClass parameters
+  HiLink pythonClassParameters pythonConstant
+
+  " pythonFunction parameters
+  HiLink pythonBrackets Normal
+  HiLink pythonFunctionParameters pythonConstant
 
   if !exists("python_no_number_highlight")
     HiLink pythonNumber		Number
