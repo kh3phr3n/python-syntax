@@ -22,12 +22,12 @@ Changes from the original `python.vim` are:
 Color Scheme
 ------------
 
-* Python keywords:
+* Vim keywords:
 
-    * `pythonNumber` `pythonString` `pythonBuiltin` `pythonFunction` `pythonClass` `pythonDecorator`
     * `pythonRepeat` `pythonConditional` `pythonInclude` `pythonTodo` `pythonComment` `pythonStatement`
     * `pythonEscape` `pythonSpaceError` `pythonException` `pythonExceptions` `pythonDoctest` `pythonDoctestValue`
-    * `pythonSelf` `pythonConstant` `pythonBrackets` `pythonOperator` `pythonExtraOperator` `pythonExtraPseudoOperator`
+    * `pythonNumber` `pythonString` `pythonRawString` `pythonBuiltin` `pythonFunction` `pythonClass` `pythonDecorator`
+    * `pythonSelf` `pythonConstant` `pythonBrackets` `pythonOperator` `pythonExtraOperator` `pythonExtraPseudoOperator` `pythonClassParameters` `pythonFunctionParameters`
 
 How to install
 --------------
