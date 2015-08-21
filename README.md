@@ -3,7 +3,7 @@
 Enhanced version of the original Python syntax highlighting script.
 Based on `python.vim` from Vim 7.4 distribution by Neil Schemenauer (nas at python dot ca).
 
-![python-syntax](http://static.tuxico.com/python-syntax/syntax.png)
+![python-syntax](http://static.tuxico.com/python-syntax/preview.png)
 
 ## Features
 
