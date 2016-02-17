@@ -19,6 +19,10 @@ Changes from the original `python.vim` are:
     * `let python_no_operator_highlight = 1`
     * `let python_no_parameter_highlight = 1`
 
+* All the options can be switched on together (recommended).
+
+    * `let python_highlight_all = 1`
+
 ## Color Scheme
 
 * Vim keywords:
