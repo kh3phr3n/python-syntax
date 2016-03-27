@@ -1,7 +1,7 @@
 # Python syntax highlighting script for Vim
 
 Enhanced version of the original Python syntax highlighting script.
-Based on `python.vim` from Vim 7.4 distribution by Neil Schemenauer (nas at python dot ca).
+Based on `python.vim` from Vim 7.4 distribution by [Zvezdan Petkovic](https://github.com/zvezdan).
 
 ![python-syntax](http://static.tuxico.com/python-syntax/preview.png)
 
