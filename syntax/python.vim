@@ -1,7 +1,7 @@
 " Vim syntax file
 " Language:	Python
 " Maintainer:	Zvezdan Petkovic <zpetkovic@acm.org>
-" Last Change:	2016 Mar 27
+" Last Change:	2016 Apr 13
 " Credits:	Neil Schemenauer <nas@python.ca>
 "		Dmitry Vasiliev
 "
@@ -77,19 +77,23 @@ set cpo&vim
 "   built-in below (use 'from __future__ import print_function' in 2)
 " - async and await were added in Python 3.5 and are soft keywords.
 "
+syn keyword pythonStatement	class nextgroup=pythonClass skipwhite
+syn keyword pythonStatement	def nextgroup=pythonFunction skipwhite
+
 syn keyword pythonStatement	False, None, True
 syn keyword pythonStatement	as assert break continue del exec global
-syn keyword pythonStatement	lambda nonlocal pass print return with yield
+syn keyword pythonStatement	lambda nonlocal pass print return with
 syn keyword pythonConditional	elif else if
 syn keyword pythonRepeat	for while
 syn keyword pythonOperator	and in is not or
 syn keyword pythonException	except finally raise try
-syn keyword pythonInclude	from import
+syn keyword pythonInclude	import
 syn keyword pythonAsync		async await
 
-" Classes, Functions
-syn keyword pythonStatement class nextgroup=pythonClass skipwhite
-syn keyword pythonStatement def nextgroup=pythonFunction skipwhite
+" Generators (yield from: Python 3.3)
+syn match pythonInclude   "\<from\>" display
+syn match pythonStatement "\<yield\>" display
+syn match pythonStatement "\<yield\s\+from\>" display
 
 " pythonExtra(*)Operator
 syn match pythonExtraOperator       "\%([~!^&|*/%+-]\|\%(class\s*\)\@<!<<\|<=>\|<=\|\%(<\|\<class\s\+\u\w*\s*\)\@<!<[^<]\@=\|===\|==\|=\~\|>>\|>=\|=\@<!>\|\*\*\|\.\.\.\|\.\.\|::\|=\)"
