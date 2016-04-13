@@ -234,7 +234,7 @@ if !exists("python_no_builtin_highlight")
   " non-essential built-in functions; Python 2 only
   syn keyword pythonBuiltin	apply buffer coerce intern
   " avoid highlighting attributes as builtins
-  syn match   pythonAttribute	/\.\h\w*/hs=s+1 contains=ALLBUT,pythonBuiltin transparent
+  " syn match   pythonAttribute	/\.\h\w*/hs=s+1 contains=ALLBUT,pythonBuiltin transparent
 endif
 
 " From the 'Python Library Reference' class hierarchy at the bottom.
