@@ -107,9 +107,6 @@ syn match   pythonDecorator	"@" display nextgroup=pythonFunction skipwhite
 " doctests.
 " A dot must be allowed because of @MyClass.myfunc decorators.
 
-" Bracket symbols
-syn match pythonBrackets "[(|)]" skipwhite
-
 " Colons
 syn match pythonColon ":"
 
@@ -141,6 +138,9 @@ syn region  pythonRawString matchgroup=pythonQuotes
 syn region  pythonRawString matchgroup=pythonTripleQuotes
       \ start=+[uU]\=[rR]\z('''\|"""\)+ end="\z1" keepend
       \ contains=pythonSpaceError,pythonDoctest,@Spell
+
+" Bracket symbols
+syn match pythonBrackets "[(|)]" skipwhite
 
 syn match   pythonEscape	+\\[abfnrtv'"\\]+ contained
 syn match   pythonEscape	"\\\o\{1,3}" contained
