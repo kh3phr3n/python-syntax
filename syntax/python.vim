@@ -110,6 +110,9 @@ syn match   pythonDecorator	"@" display nextgroup=pythonFunction skipwhite
 " Bracket symbols
 syn match pythonBrackets "[(|)]" skipwhite
 
+" Colons
+syn match pythonColon ":"
+
 " Class parameters
 syn match  pythonClass "\%(\%(def\s\|class\s\|@\)\s*\)\@<=\h\%(\w\|\.\)*" contained nextgroup=pythonClassVars
 syn region pythonClassVars start="(" end=")" contained contains=pythonClassParameters transparent keepend
@@ -335,6 +338,7 @@ if version >= 508 || !exists("did_python_syn_inits")
   HiLink pythonTripleQuotes	pythonQuotes
   HiLink pythonEscape		Special
   HiLink pythonBrackets		Delimiter
+  HiLink pythonColon		Delimiter
 
   " Classes, Functions
   HiLink pythonClass    Type
