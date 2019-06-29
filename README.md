@@ -46,3 +46,7 @@ This plugin is strongly inspired by:
 * [python-syntax](https://github.com/hdima/python-syntax)
 * [pretty-vim-python](https://github.com/pfdevilliers/Pretty-Vim-Python)
 
+## Contributors
+
+* [Aramis Razzaghipour](https://github.com/arzg)
+
