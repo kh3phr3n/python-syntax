@@ -108,7 +108,10 @@ syn match   pythonDecorator	"@" display nextgroup=pythonFunction skipwhite
 " A dot must be allowed because of @MyClass.myfunc decorators.
 
 " Bracket symbols
-syn match pythonBrackets "[(|)]" contained skipwhite
+syn match pythonBrackets "[(|)]" skipwhite
+
+" Colons
+syn match pythonColon ":"
 
 " Class parameters
 syn match  pythonClass "\%(\%(def\s\|class\s\|@\)\s*\)\@<=\h\%(\w\|\.\)*" contained nextgroup=pythonClassVars
@@ -331,9 +334,11 @@ if version >= 508 || !exists("did_python_syn_inits")
   HiLink pythonTodo		Todo
   HiLink pythonString		String
   HiLink pythonRawString	String
-  HiLink pythonQuotes		String
+  HiLink pythonQuotes		StringDelimiter
   HiLink pythonTripleQuotes	pythonQuotes
   HiLink pythonEscape		Special
+  HiLink pythonBrackets		Delimiter
+  HiLink pythonColon		Delimiter
 
   " Classes, Functions
   HiLink pythonClass    Type
