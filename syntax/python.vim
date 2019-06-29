@@ -108,7 +108,7 @@ syn match   pythonDecorator	"@" display nextgroup=pythonFunction skipwhite
 " A dot must be allowed because of @MyClass.myfunc decorators.
 
 " Bracket symbols
-syn match pythonBrackets "[(|)]" contained skipwhite
+syn match pythonBrackets "[(|)]" skipwhite
 
 " Class parameters
 syn match  pythonClass "\%(\%(def\s\|class\s\|@\)\s*\)\@<=\h\%(\w\|\.\)*" contained nextgroup=pythonClassVars
