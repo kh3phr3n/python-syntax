@@ -331,9 +331,10 @@ if version >= 508 || !exists("did_python_syn_inits")
   HiLink pythonTodo		Todo
   HiLink pythonString		String
   HiLink pythonRawString	String
-  HiLink pythonQuotes		String
+  HiLink pythonQuotes		StringDelimiter
   HiLink pythonTripleQuotes	pythonQuotes
   HiLink pythonEscape		Special
+  HiLink pythonBrackets		Delimiter
 
   " Classes, Functions
   HiLink pythonClass    Type
